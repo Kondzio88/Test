@@ -34,17 +34,18 @@ section {
 	padding: 3rem 7%;
 }
 
-.title{
+.title {
 	text-align: center;
 	font-size: 2.8rem;
 	color: var(--main-color);
 	margin-bottom: 3rem;
 	padding: 1.2rem 0;
-	border-bottom: .1rem solid rgba(0, 0, 0, 0.1rem);
+	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1rem);
 }
 
-.title span{
+.title span {
 	color: var(--second-color);
+	margin-left: 1rem;
 }
 
 .btn:hover {
@@ -329,35 +330,35 @@ section {
 
 /*  banner */
 
-.banner .box-container{
+.banner .box-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(25rem ,1fr));
-	gap:2rem;
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	gap: 2rem;
 }
 
-.banner .box-container .box{
-	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+.banner .box-container .box {
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 	position: relative;
 	overflow: hidden;
 	text-align: center;
 	background-color: var(--second-color);
 }
 
-.banner .box-container .box .image{
+.banner .box-container .box .image {
 	width: 100%;
 }
 
-.banner .box-container .box .image img{
+.banner .box-container .box .image img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
 }
 
-.banner .box-container .box .content{
+.banner .box-container .box .content {
 	padding: 2rem;
 }
 
-.banner .box-container .box .content h3{
+.banner .box-container .box .content h3 {
 	font-size: 2.5rem;
 	color: #fff;
 	margin-bottom: 1rem;
@@ -367,37 +368,162 @@ section {
 
 /* section steps starts */
 
-.steps .box-container{
+.steps .box-container {
 	display: flex;
 	flex-wrap: wrap;
-	gap:1.5rem;
+	gap: 1.5rem;
 }
 
-.steps .box-container .box{
-	flex:1 1 25rem;
+.steps .box-container .box {
+	flex: 1 1 25rem;
 	padding: 1rem;
 	text-align: center;
 }
 
-.steps .box-container .box img{
+.steps .box-container .box img {
 	border-radius: 50%;
-	box-shadow: var(--box-shadow) ;
+	box-shadow: var(--box-shadow);
 	width: 60%;
 	height: 60%;
 }
 
-.steps .box-container .box h3{
+.steps .box-container .box h3 {
 	font-size: 2.4rem;
 	color: var(--main-color);
 	padding: 1rem;
 }
 
+/* pizzas menu */
 
+.pizzas .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	gap: 2.5rem;
+}
 
+.pizzas .box-container .box {
+	padding: 0 2.5rem;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
 
+.pizzas .box-container .box img {
+	height: 29rem;
+	transition: transform 0.2s linear;
+}
 
+.pizzas .box-container .box:hover img {
+	transform: scale(1.1);
+}
 
+.pizzas .box-container .box h3 {
+	font-size: 2.5rem;
+	color: var(--main-color);
+	line-height: 1.8rem;
+	padding-top: 2rem;
+}
 
+.pizzas .box-container .box p {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	padding: 0.8rem 0;
+}
 
+.pizzas .box-container .box .stars {
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+	text-align: center;
+}
 
+.pizzas .box-container .box .stars i {
+	color: gold;
+	font-size: 1.7rem;
+}
 
+.pizzas .box-container .box .price {
+	font-size: 2.5rem;
+	color: var(--main-color);
+	text-align: center;
+}
+
+.pizzas .box-container .box .price span {
+	font-size: 1.4rem;
+	color: var(--second-color);
+	text-decoration: line-through;
+	font-weight: lighter;
+	margin-left: 1rem;
+}
+
+/*end  */
+
+/* footer */
+
+.footer {
+	background-color: #eee;
+	text-align: center;
+}
+
+.footer .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	gap: 2rem;
+}
+
+.footer .box-container .box h3{
+	font-size: 2.2rem;
+	text-transform: capitalize;
+	color: var(--main-color);
+	padding: 1rem 0;;
+}
+
+.footer .box-container .box p{
+	font-size: 1.5rem;
+	line-height: 2;
+	color: var(--gray-color);
+}
+
+.footer .box-container .share{
+	margin-top: 1rem;
+}
+	
+.footer .box-container .share a{
+	width: 4.5rem;
+	height: 4.5rem;
+	line-height: 4.5rem;
+	font-size: 1.8rem;
+	border: .1rem solid rgba(0, 0, 0, 0.1);
+	border-radius: 10%;
+}
+
+.footer .box-container .share a:hover{
+	background-color: var(--main-color);
+	color: var(--second-color);
+}
+
+.footer .box-container .box .link{
+	font-size: 1.7rem;
+	line-height: 2;
+	color: var(--main-color);
+	padding: .5rem 0;
+	display: block;
+	color: var(--main-color);
+}
+
+.footer .box-container .box .link:hover{
+	color: var(--second-color);
+}
+
+.footer .credit{
+	margin-top: 3rem;
+	padding-top:3rem;
+	text-align: center;
+	font-size: 2rem;
+	border-top: .1rem solid var(--gray-color);
+}
+
+.footer .credit span{
+	color: var(--second-color);
+	margin-left: 1rem;
+}
