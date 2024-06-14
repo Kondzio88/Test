@@ -48,6 +48,31 @@ section {
 	margin-left: 1rem;
 }
 
+.heading{
+	background: url(images/heading2.jpg) no-repeat;
+	background-position: center;
+	text-align: center;
+	padding-top: 12rem;
+	padding-bottom: 8rem;
+}
+
+.heading h1{
+	color: #fff;
+	font-size: 4rem;
+	filter: brightness(100%);
+}
+
+.heading p{
+	font-size: 2rem;
+	padding-top: 2rem;
+	color: #fff;
+}
+
+.heading p a{
+	color:var(--second-color);
+	padding-right: .5rem;
+}
+
 .btn:hover {
 	background-color: var(--main-color);
 	color: var(--second-color);
@@ -526,4 +551,87 @@ section {
 .footer .credit span{
 	color: var(--second-color);
 	margin-left: 1rem;
+}
+
+/*  about secction */
+
+.about .row{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4rem;
+}
+
+.about .row .image{
+	flex:1 1 25rem;
+}
+
+.about .row .image img{
+	width:100%;
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.about .row .content{
+	flex:1 1 50rem;
+}
+
+.about .row .content h3{
+	font-size: 3.5rem;
+	color: var(--main-color);
+	padding-bottom: 2rem;
+}
+
+.about .row .content h3 span{
+	color: var(--second-color);
+	padding-left: 1rem;
+}
+
+.about .row .content p{
+	font-size: 1.6rem;
+	color: #666;
+	padding: 2rem 0;
+	line-height: 1;
+}
+
+/*  Media Query */
+
+@media(max-width:991px){
+
+	html{
+		font-size: 55%;
+	}
+	
+	.header{
+		padding: 2rem;
+	}
+
+	section{
+		padding:3rem;
+	}
+}	
+
+@media(max-width:768px){
+	.header .icons #menu{
+		display:inline-block;
+	}
+
+	.header .nav-bar{
+		position: absolute;
+		top:110%;right:-100%;
+		width:30rem;
+		box-shadow: 0 .5rem1 rem rgba(0, 0, 0, 0.1);
+		border-radius: .5rem;
+		background-color: #fff;
+	}
+
+	.header .nav-bar.active{
+		right:2rem;
+		transition: .4s linear;
+	}
+
+	.header .nav-bar a{
+		font-size: 2rem;
+		padding: 2rem;
+		display: block;
+	}
 }
