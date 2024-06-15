@@ -52,6 +52,18 @@ var swiper = new Swiper('.home-slider', {
 	},
 })
 
+var swiper = new Swiper('.menu-slider', {
+    grabCursor: true,
+    loop: true,
+    centeredSlides: true,
+    autoHeight: true,
+    spaceBetween: 20,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+
 menuBtn.addEventListener('click', () => {
 	nav.classList.toggle('active')
 	login.classList.remove('active')
