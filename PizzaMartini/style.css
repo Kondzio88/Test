@@ -593,6 +593,62 @@ section {
 	line-height: 1;
 }
 
+/* section blogs */
+
+.blogs .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	gap: 2rem;
+}
+
+.blogs .box-container .box {
+	box-shadow: o 0.5rem 1rem rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.blogs .box-container .box img {
+	width: 100%;
+	height: 25rem;
+	object-fit: cover;
+	border-radius: 0.5rem;
+}
+
+.blogs .box-container .box .icons {
+	position: relative;
+	top: -2rem;
+	padding: 1rem 2rem;
+	background-color: var(--second-color);
+	border-radius: 1rem;
+	display: inline-block;
+	text-align: center;
+}
+
+.blogs .box-container .box .icons a {
+	font-size: 1.5rem;
+	color: #fff;
+	margin-bottom: 0.1rem;
+	padding-right: 2rem;
+	font-style: italic;
+}
+.blogs .box-container .box .icons a:hover {
+	color: var(--main-color);
+}
+
+.blogs .box-container .box .icons a i {
+	color: var(--main-color);
+	padding-right: 0.5rem;
+}
+
+.blogs .box-container .box h3 {
+	font-size: 2rem;
+	line-height: 2;
+}
+
+.blogs .box-container .box p {
+	color: #666;
+	font-size: 1.4rem;
+}
+
 /*  Media Query */
 
 @media (max-width: 991px) {
@@ -635,18 +691,17 @@ section {
 		display: block;
 	}
 
-	.home .slide .content h3{
+	.home .slide .content h3 {
 		font-size: 4rem;
 	}
 }
 
-@media(max-width:450px){
-
-	html{
+@media (max-width: 450px) {
+	html {
 		font-size: 50%;
 	}
 
-	.home .slide .content h3{
-		font-size: 3.5rem;
+	.home .slide .content h3 {
+		font-size: 3rem;
 	}
 }
