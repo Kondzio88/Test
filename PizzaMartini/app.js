@@ -18,15 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			menuPreviewBox.forEach(prev => {
 				const target = prev.getAttribute('data-target')
+
 				if (name == target) {
 					prev.classList.add('active')
+				} else {
+					prev.classList.remove('active')
 				}
-			})
 
-			menuPreviewContainer.querySelector('.btn').addEventListener('click',() => {
-				menuPreviewContainer.style.display = 'none'
+				prev.querySelector('.btn').addEventListener('click', () => {
+					menuPreviewContainer.style.display = 'none'
+				})
 			})
-
 
 			// Dodajemy event listener dla przycisków zamknięcia
 			document.querySelectorAll('#close').forEach(close => {
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		shoppingCart.classList.toggle('active')
 		loginForm.classList.remove('active')
 		nav.classList.remove('active')
+		popupZoom.style.display = 'none'
 	})
 
 	// Toggle login form visibility
@@ -52,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		loginForm.classList.toggle('active')
 		shoppingCart.classList.remove('active')
 		nav.classList.remove('active')
+		popupZoom.style.display = 'none'
 	})
 
 	// Hide elements on scroll
@@ -59,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		shoppingCart.classList.remove('active')
 		loginForm.classList.remove('active')
 		nav.classList.remove('active')
+		popupZoom.style.display = 'none'
 	}
 
 	// Set current date in the blog section
@@ -96,10 +101,36 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 	})
 
+	// Initzialize gallery zoom
+
+	const popupZoom = document.querySelector('.gallery-popup')
+
+	const galleryImgBox = document.querySelectorAll('.gallery-container .box')
+
+	galleryImgBox.forEach(box => {
+		box.addEventListener('click', () => {
+			const imgSrc = box.querySelector('img').getAttribute('src')
+			const popupImg = popupZoom.querySelector('img')
+			popupImg.src = imgSrc
+			popupActive()
+		})
+	})
+
+	const popupActive = () => {
+		popupZoom.style.display = 'flex'
+		const closeBtn = popupZoom.querySelector('.icon i')
+		console.log(closeBtn);
+		closeBtn.addEventListener('click', () => {
+			popupZoom.style.display = 'none'
+		})
+	}
+
+
 	// Toggle navigation menu visibility
 	menuBtn.addEventListener('click', () => {
 		nav.classList.toggle('active')
 		loginForm.classList.remove('active')
 		shoppingCart.classList.remove('active')
+		popupZoom.style.display = 'none'
 	})
 })
