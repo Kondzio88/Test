@@ -7,6 +7,35 @@ let card = document.querySelector('.shopping-cart')
 const menuBtn = document.querySelector('#menu')
 const nav = document.querySelector('.nav-bar')
 
+const menuPreviewContainer = document.querySelector('.menu-preview-container')
+
+const menuPreviewBox = menuPreviewContainer.querySelectorAll('.menu-preview')
+
+const allBox = document.querySelectorAll('.menu .box')
+
+allBox.forEach(box => {
+	box.addEventListener('click', () => {
+		menuPreviewContainer.style.display = 'flex'
+		let nam = box.getAttribute('data-name')
+		menuPreviewBox.forEach(preview => {
+			let addCart =preview.querySelector('.btn')
+			addCart.addEventListener('click',() => {
+				menuPreviewContainer.style.display = 'none'
+			})
+			let close = document.querySelector('#close')
+			close.addEventListener('click', () => {
+				menuPreviewContainer.style.display = 'none'
+			})
+			let target = preview.getAttribute('data-target')
+			if (nam == target) {
+				preview.classList.add('active')
+			} else {
+				preview.classList.remove('active')
+			}
+		})
+	})
+})
+
 cart.addEventListener('click', () => {
 	card.classList.toggle('active')
 	login.classList.remove('active')
@@ -53,16 +82,16 @@ var swiper = new Swiper('.home-slider', {
 })
 
 var swiper = new Swiper('.menu-slider', {
-    grabCursor: true,
-    loop: true,
-    centeredSlides: true,
-    autoHeight: true,
-    spaceBetween: 20,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-});
+	grabCursor: true,
+	loop: true,
+	centeredSlides: true,
+	autoHeight: true,
+	spaceBetween: 20,
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+	},
+})
 
 menuBtn.addEventListener('click', () => {
 	nav.classList.toggle('active')
