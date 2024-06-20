@@ -1,7 +1,9 @@
-const shopNumberItems = document.querySelector('.header .icons .shopping-cart-number')
 // Zdefiniowanie zmiennej cartArray
 let cartArray = JSON.parse(localStorage.getItem('cartArray')) || []
 const menuBtn = document.querySelector('#menu')
+
+const totalHtml = document.querySelector('.shopping-cart .total')
+
 // Funkcja dodająca produkt do koszyka
 const addToCart = product => {
 	const exist = cartArray.find(x => x.id === product.id)
@@ -13,33 +15,30 @@ const addToCart = product => {
 	}
 	localStorage.setItem('cartArray', JSON.stringify(cartArray))
 	renderCartBasket()
+	calculateTotalPrice()
 }
-
-
-
 
 const cart = document.querySelector('#cart')
 
 // Funkcja renderująca zawartość koszyka
 const renderCartBasket = () => {
 	const shoppingCart = document.querySelector('.shopping-cart')
+
 	shoppingCart.innerHTML = ''
-   
 
 	cartArray.forEach(target => {
-		
-
 		const cartItemHtml = document.createElement('div')
 		cartItemHtml.classList.add('box')
 		cartItemHtml.innerHTML = `<i class="fas fa-times"></i>
-            <img src=${target.img} alt="">
-            <div class="content">
-                <h3>${target.name}</h3>
-                <span class="quantity">${target.quantity}</span>
-                <span class="price">${target.price}$</span>
-			</div>`
+		<img src=${target.img} alt="">
+		<div class="content">
+		<h3>${target.name}</h3>
+		<span class="quantity">${target.quantity}</span>
+		<span class="price">${target.price}$</span>
+		</div>`
 
 		shoppingCart.appendChild(cartItemHtml)
+		calculateTotalPrice()
 
 		const cancelBtn = cartItemHtml.querySelector('.fa-times')
 		cancelBtn.addEventListener('click', () => {
@@ -54,7 +53,19 @@ const renderCartBasket = () => {
 
 			localStorage.setItem('cartArray', JSON.stringify(cartArray))
 			renderCartBasket()
+			calculateTotalPrice()
 		})
+	})
+}
+
+const calculateTotalPrice = () => {
+	let total = 0
+	console.log(total)
+
+	cartArray.forEach(item => {
+		total += item.price * item.quantity
+		totalHtml.innerHTML = `<h3 class="total">total :$${total}</h3>`
+		shoppingCart.appendChild(totalHtml)
 	})
 }
 
@@ -119,4 +130,4 @@ dateEl.forEach(el => {
 handleScroll()
 
 // Eksportowanie funkcji i zmiennej
-export { addToCart, cartArray ,renderCartBasket}
+export { addToCart, cartArray, renderCartBasket }
