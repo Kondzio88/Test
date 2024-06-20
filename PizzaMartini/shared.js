@@ -1,3 +1,4 @@
+const shopNumberItems = document.querySelector('.header .icons .shopping-cart-number')
 // Zdefiniowanie zmiennej cartArray
 let cartArray = JSON.parse(localStorage.getItem('cartArray')) || []
 const menuBtn = document.querySelector('#menu')
@@ -14,14 +15,20 @@ const addToCart = product => {
 	renderCartBasket()
 }
 
+
+
+
 const cart = document.querySelector('#cart')
 
 // Funkcja renderująca zawartość koszyka
 const renderCartBasket = () => {
 	const shoppingCart = document.querySelector('.shopping-cart')
 	shoppingCart.innerHTML = ''
+   
 
 	cartArray.forEach(target => {
+		
+
 		const cartItemHtml = document.createElement('div')
 		cartItemHtml.classList.add('box')
 		cartItemHtml.innerHTML = `<i class="fas fa-times"></i>
@@ -29,8 +36,8 @@ const renderCartBasket = () => {
             <div class="content">
                 <h3>${target.name}</h3>
                 <span class="quantity">${target.quantity}</span>
-                <span class="multiply"></span>
-                <span class="price">$ ${target.price}</span>`
+                <span class="price">${target.price}$</span>
+			</div>`
 
 		shoppingCart.appendChild(cartItemHtml)
 
@@ -50,6 +57,9 @@ const renderCartBasket = () => {
 		})
 	})
 }
+
+// event listeners
+
 const shoppingCart = document.querySelector('.shopping-cart')
 
 const loginForm = document.querySelector('.login-form')
@@ -109,4 +119,4 @@ dateEl.forEach(el => {
 handleScroll()
 
 // Eksportowanie funkcji i zmiennej
-export { addToCart, cartArray }
+export { addToCart, cartArray ,renderCartBasket}

@@ -1,4 +1,5 @@
 import { addToCart } from './shared.js'
+import { products } from './products.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 	// Inicjalizowanie slidera na stronie głównej

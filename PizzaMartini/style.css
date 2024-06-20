@@ -136,6 +136,17 @@ section {
 	display: none;
 }
 
+.header .fa-shopping-cart{
+	position:relative;
+}
+
+.header .icons .shopping-cart-number{
+	position:absolute;
+	top:-55%;
+	right:-55%;
+	color:var(--second-color);
+}
+
 .header .shopping-cart {
 	position: absolute;
 	top: 115%;
@@ -187,10 +198,13 @@ section {
 .header .shopping-cart .box .content span {
 	font-size: 1.5rem;
 	color: var(--gray-color);
+	padding:0 1rem;
 }
 
-.header .shopping-cart .box .content span.multiply {
-	margin: 0 0.5rem;
+.header .shopping-cart .box .content span.quantity {
+  color: var(--second-color);
+  font-size: 1.7rem;
+	font-weight: bold;
 }
 
 .header .shopping-cart .total {
@@ -203,7 +217,6 @@ section {
 	text-align: center;
 	width: 100%;
 }
-
 .header .login-form {
 	position: absolute;
 	top: 115%;

@@ -42,3 +42,5 @@ const products = [
 		price2: 69,
 	},
 ]
+
+export {products}

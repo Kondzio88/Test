@@ -1,17 +1,10 @@
-import { initCart, cartArray} from './shared.js'
+import  {cartArray} from './shared.js'
 
-document.addEventListener('DOMContentLoaded', () => {
-	initCart()
 
-})
 
 const popupActive = () => {
     popupZoom.style.display = 'flex'
-    const closeBtn = popupZoom.querySelector('.icon i')
-    console.log(closeBtn)
-    closeBtn.addEventListener('click', () => {
-        popupZoom.style.display = 'none'
-    })
+    
 }
 
 const popupZoom = document.querySelector('.gallery-popup')
