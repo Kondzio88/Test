@@ -3,7 +3,22 @@ let cartArray = JSON.parse(localStorage.getItem('cartArray')) || []
 const menuBtn = document.querySelector('#menu')
 
 const totalHtml = document.querySelector('.shopping-cart .total')
+const cart = document.querySelector('#cart')
 
+const basketNumber = document.querySelector('.shopping-cart-number')
+
+const calculateTotalItems = () => {
+	let totalItems = 0
+	if (cartArray.length < 1) {
+		basketNumber.innerHTML = ''
+	} else {
+		cartArray.forEach(item => {
+			totalItems += item.quantity
+			basketNumber.innerHTML = totalItems
+		})
+	}
+}
+calculateTotalItems()
 // Funkcja dodająca produkt do koszyka
 const addToCart = product => {
 	const exist = cartArray.find(x => x.id === product.id)
@@ -16,9 +31,8 @@ const addToCart = product => {
 	localStorage.setItem('cartArray', JSON.stringify(cartArray))
 	renderCartBasket()
 	calculateTotalPrice()
+	calculateTotalItems()
 }
-
-const cart = document.querySelector('#cart')
 
 // Funkcja renderująca zawartość koszyka
 const renderCartBasket = () => {
@@ -33,8 +47,10 @@ const renderCartBasket = () => {
 		<img src=${target.img} alt="">
 		<div class="content">
 		<h3>${target.name}</h3>
+		<div class="content">
 		<span class="quantity">${target.quantity}</span>
 		<span class="price">${target.price}$</span>
+		</div>
 		</div>`
 
 		shoppingCart.appendChild(cartItemHtml)
@@ -54,17 +70,18 @@ const renderCartBasket = () => {
 			localStorage.setItem('cartArray', JSON.stringify(cartArray))
 			renderCartBasket()
 			calculateTotalPrice()
+			calculateTotalItems()
 		})
 	})
 }
 
 const calculateTotalPrice = () => {
 	let total = 0
-	console.log(total)
 
 	cartArray.forEach(item => {
 		total += item.price * item.quantity
 		totalHtml.innerHTML = `<h3 class="total">total :$${total}</h3>`
+		totalHtml.classList.add('.total')
 		shoppingCart.appendChild(totalHtml)
 	})
 }
