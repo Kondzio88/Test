@@ -4,8 +4,24 @@ const menuBtn = document.querySelector('#menu')
 
 const totalHtml = document.querySelector('.shopping-cart .total')
 const cart = document.querySelector('#cart')
+const shoppingCart = document.querySelector('.shopping-cart')
 
 const basketNumber = document.querySelector('.shopping-cart-number')
+
+const loginForm = document.querySelector('.login-form')
+const nav = document.querySelector('.nav-bar')
+const popupZoom = document.querySelector('.gallery-popup')
+
+const infoContainer = document.querySelector('.info-container')
+
+console.log(infoContainer);
+const info = () => {
+	infoContainer.classList.add('active')
+	setTimeout(() => {
+	infoContainer.classList.remove('active')
+
+	},2000)
+}
 
 const calculateTotalItems = () => {
 	let totalItems = 0
@@ -18,11 +34,14 @@ const calculateTotalItems = () => {
 		})
 	}
 }
+
+console.log(info);
 calculateTotalItems()
 // Funkcja dodająca produkt do koszyka
 const addToCart = product => {
 	const exist = cartArray.find(x => x.id === product.id)
 
+	info()
 	if (exist) {
 		exist.quantity++
 	} else {
@@ -80,19 +99,13 @@ const calculateTotalPrice = () => {
 
 	cartArray.forEach(item => {
 		total += item.price * item.quantity
-		totalHtml.innerHTML = `<h3 class="total">total :$${total}</h3>`
+		totalHtml.innerHTML = `<h3 class="total">razem :${total}$</h3>`
 		totalHtml.classList.add('.total')
 		shoppingCart.appendChild(totalHtml)
 	})
 }
 
 // event listeners
-
-const shoppingCart = document.querySelector('.shopping-cart')
-
-const loginForm = document.querySelector('.login-form')
-const nav = document.querySelector('.nav-bar')
-const popupZoom = document.querySelector('.gallery-popup')
 
 menuBtn.addEventListener('click', () => {
 	nav.classList.toggle('active')
