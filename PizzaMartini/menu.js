@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const allBox = document.querySelectorAll('.menu .box')
 
 	allBox.forEach(box => {
+	
 		box.addEventListener('click', () => {
 			const id = box.getAttribute('data-id') // Pobranie id produktu jako string
 
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                             <div  class="btn">zamów</div>`
 
 				const addBtn = menuPreviewBox.querySelector('.btn')
-				console.log(addBtn)
+			
 				addBtn.addEventListener('click', () => {
 					addToCart(item)
 					menuPreviewBox.classList.remove('active')
@@ -66,7 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				menuPreviewBox.classList.add('active')
 			} else {
-				console.error(`Product with id ${id} not found.`)
+				menuPreviewBox.innerHTML = `<h3>brak produktów</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quidem reprehenderit vitae?</p>
+                                            `
+
+											menuPreviewBox.classList.add('active')
 			}
 		})
 	})

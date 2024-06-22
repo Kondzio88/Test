@@ -49,11 +49,12 @@ section {
 }
 
 .heading {
-	background: url(images/heading2.jpg) no-repeat;
-	background-position: center;
+	background: url(images/heading.jpg) no-repeat;
+	background-position: center ;
 	text-align: center;
 	padding-top: 12rem;
 	padding-bottom: 8rem;
+	background-size: cover;
 }
 
 .heading h1 {
@@ -63,8 +64,10 @@ section {
 }
 
 .heading p {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	padding-top: 2rem;
+	font-weight: bold;
+	font-style: italic;
 	color: #fff;
 }
 
@@ -100,6 +103,8 @@ section {
 	background-color: #fff;
 }
 
+/* info containers */
+
 .header .info-container {
 	position: absolute;
 	top: 2rem;
@@ -108,30 +113,65 @@ section {
 	padding: 2rem;
 	background-color: #fff;
 	z-index: 1000;
-	border:.1rem solid rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 	border-radius: 1rem;
 	display: flex;
 	justify-content: center;
-	transition:.5s linear ;
+	transition: 0.5s linear;
 	align-items: center;
 }
 
 .header .info-container.active {
-	left:2rem;
-	transition:.5s linear ;
+	left: 2rem;
+	transition: 0.5s linear;
 }
 
-
-.header .info-container p{
+.header .info-container p {
 	font-size: 1.7rem;
 	color: var(--main-color);
 }
 
-.header .info-container p i{
+.header .info-container p i {
 	color: var(--second-color);
 	padding-right: 1rem;
 }
 
+.header .info-container-login,
+.header .info-container-messeg {
+	position: absolute;
+	top: -115%;
+	left: 0;
+	width: 100%;
+	height: 7rem;
+	padding: 2rem;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	transition: 0.3s linear;
+}
+.header .info-container-messeg.active {
+	top: 0;
+	transition: 0.3s linear;
+}
+
+.header .info-container-login.active {
+	top: 0;
+	transition: 0.3s linear;
+}
+
+.header .info-container-login p,.header .info-container-messeg p {
+	font-size: 2rem;
+	color: var(--main-color);
+}
+
+.header .info-container-login p i,.header .info-container-messeg p i {
+	color: var(--second-color);
+	padding-right: 1rem;
+}
+
+/* info containers end */
 
 .header .logo {
 	font-size: 2.5rem;

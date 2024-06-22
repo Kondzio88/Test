@@ -8,20 +8,28 @@ const shoppingCart = document.querySelector('.shopping-cart')
 
 const basketNumber = document.querySelector('.shopping-cart-number')
 
+const userBtn = document.querySelector('#login')
 const loginForm = document.querySelector('.login-form')
 const nav = document.querySelector('.nav-bar')
 const popupZoom = document.querySelector('.gallery-popup')
 
 const infoContainer = document.querySelector('.info-container')
+const infoContainerLogin = document.querySelector('.info-container-login')
+const infoContainerMesseg = document.querySelector('.info-container-messeg')
 
-console.log(infoContainer);
-const info = () => {
-	infoContainer.classList.add('active')
+// info functions
+
+const info = param => {
+	param.classList.add('active')
 	setTimeout(() => {
-	infoContainer.classList.remove('active')
-
-	},2000)
+		param.classList.remove('active')
+	}, 2000)
+	if (loginForm) {
+		loginForm.classList.remove('active')
+	}
 }
+
+// calculate functions
 
 const calculateTotalItems = () => {
 	let totalItems = 0
@@ -35,13 +43,25 @@ const calculateTotalItems = () => {
 	}
 }
 
-console.log(info);
 calculateTotalItems()
-// Funkcja dodająca produkt do koszyka
+
+const calculateTotalPrice = () => {
+	let total = 0
+
+	cartArray.forEach(item => {
+		total += item.price * item.quantity
+		totalHtml.innerHTML = `<h3 class="total">razem :${total}$</h3>`
+		totalHtml.classList.add('.total')
+		shoppingCart.appendChild(totalHtml)
+	})
+}
+// add product to basket functions
+
 const addToCart = product => {
 	const exist = cartArray.find(x => x.id === product.id)
 
-	info()
+	info(infoContainer)
+	
 	if (exist) {
 		exist.quantity++
 	} else {
@@ -94,17 +114,6 @@ const renderCartBasket = () => {
 	})
 }
 
-const calculateTotalPrice = () => {
-	let total = 0
-
-	cartArray.forEach(item => {
-		total += item.price * item.quantity
-		totalHtml.innerHTML = `<h3 class="total">razem :${total}$</h3>`
-		totalHtml.classList.add('.total')
-		shoppingCart.appendChild(totalHtml)
-	})
-}
-
 // event listeners
 
 menuBtn.addEventListener('click', () => {
@@ -116,7 +125,6 @@ menuBtn.addEventListener('click', () => {
 	}
 })
 
-const userBtn = document.querySelector('#login')
 userBtn.addEventListener('click', () => {
 	loginForm.classList.toggle('active')
 	shoppingCart.classList.remove('active')
@@ -124,6 +132,10 @@ userBtn.addEventListener('click', () => {
 	if (popupZoom) {
 		popupZoom.style.display = 'none'
 	}
+	const btn = loginForm.querySelector('.btn')
+	btn.addEventListener('click', () => {
+		info(infoContainerLogin)
+	})
 })
 
 cart.addEventListener('click', () => {
@@ -150,6 +162,8 @@ const handleScroll = () => {
 	}
 }
 
+// data blogs section
+
 const dateEl = document.querySelectorAll('.icons .date')
 const year = new Date().getUTCFullYear()
 const day = new Date().getDate()
@@ -160,4 +174,4 @@ dateEl.forEach(el => {
 handleScroll()
 
 // Eksportowanie funkcji i zmiennej
-export { addToCart, cartArray, renderCartBasket }
+export { addToCart, cartArray, renderCartBasket, info }
