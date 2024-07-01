@@ -170,8 +170,12 @@ body {
 }
 
 .box .nation {
+	width: 30%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
-
 	background-position: center;
 	background-size: cover;
 	height: 100%;
@@ -361,23 +365,45 @@ body {
 		width: 10rem;
 		height: 7rem;
 	}
-	.box .cards .card h3{
+	.box .cards .card h3 {
 		font-size: 1.2rem;
 	}
-	.box .cards .card p{
+	.box .cards .card p {
 		font-size: 1rem;
 	}
 }
 
-@media (max-width: 600px){
-	*{
+@media (max-width: 660px) {
+	* {
 		font-size: 45%;
 	}
-	.box .cards .card{
-		width:10rem
+	.box .cards .card {
+		width: 10rem;
 	}
 	.box .nation img {
-		width: 9rem;
-		height: 7rem;
+		width: 8rem;
+		height: 6rem;
 	}
+	.box .cards .card img {
+		width: 8rem;
+		height: 6rem;
+	}
+	.box .nation {
+		width: 25%;
+	}
+	.box .cards .card h3 {
+		font-size: 1.1rem;
+	}
+	.box .cards .card .life,
+	.box .cards .card .power {
+		width: 90%;
+		height: 1.2rem;
+	}
+	.box .cards .card .life .progress-text,
+.box .cards .card .power .progress-text {
+	font-size: 1rem;
+}
+.box .nation .life .progress-text{
+	font-size: 1.5rem;
+}
 }
