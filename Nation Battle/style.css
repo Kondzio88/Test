@@ -342,22 +342,42 @@ body {
 
 /*    Media Querries    */
 
-@media (max-width: 700px) {
+@media (max-width: 1040px) {
 	* {
 		font-size: 55%;
 	}
 	.box .nation img {
-		width: 12rem;
-		height: 9rem;
+		width: 14rem;
+		height: 10rem;
 	}
 	.container {
 		padding: 0.5rem;
 	}
 	.box .cards .card {
 		width: 12rem;
+		justify-content: space-between;
 	}
 	.box .cards .card img {
 		width: 10rem;
+		height: 7rem;
+	}
+	.box .cards .card h3{
+		font-size: 1.2rem;
+	}
+	.box .cards .card p{
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 600px){
+	*{
+		font-size: 45%;
+	}
+	.box .cards .card{
+		width:10rem
+	}
+	.box .nation img {
+		width: 9rem;
 		height: 7rem;
 	}
 }
