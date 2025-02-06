@@ -47,8 +47,6 @@ window.addEventListener('scroll', function () {
 		let height = sec.offsetHeight
 		let id = sec.id
 
-		console.log(offset, 'offset')
-		console.log(top, 'top')
 		if (top >= offset / 2 && top <= offset + height) {
 			if (id == 'card-section' && !countingFlag) {
 				countingNumbers()
@@ -66,7 +64,7 @@ window.addEventListener('scroll', () => {
 	if (window.scrollY > 150) {
 		nav.style.background = 'rgba(0, 0, 0, 1)'
 		nav.style.transition = 'all 1s'
-	} else {
+	} else if(window.scrollY < 150 && !navLinks.classList.contains('active')) {
 		nav.style.background = 'rgba(0, 0, 0, 0.5)'
 		nav.style.transition = 'all 1s'
 	}
@@ -89,4 +87,8 @@ openMenuIcon.addEventListener('click', () => {
 		openMenuIcon.style.display = 'block'
 		closeMenuIcon.style.display = 'none'
 	})
+	if(navLinks.classList.contains('active')){
+		nav.style.background = 'rgba(0, 0, 0, 1)'
+		console.log('ok');
+	}
 })

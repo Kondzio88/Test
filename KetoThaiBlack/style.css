@@ -83,7 +83,7 @@ i {
 
 header {
 	position: fixed;
-	width:100%;
+	width: 100%;
 	top: 0;
 	left: 0;
 	z-index: 999;
@@ -199,14 +199,12 @@ header {
 
 .hamburger-menu {
 	display: none;
-	position:relative;
+	position: relative;
 }
 
-.hamburger-menu .bx{
+.hamburger-menu .bx {
 	position: absolute;
 }
-
-
 
 /* !================== MAIN SECTION ------------------------------------ */
 
@@ -454,45 +452,101 @@ header {
 
 /* ! -------------------------------- MEDIA QUERIES ---------------------------------- */
 
+@media screen and (max-width: 768px) {
+	html {
+		font-size: 55%;
+	}
+
+	.nav-links {
+		position: absolute;
+		top: 47px;
+		right: 0;
+		flex-direction: column;
+		justify-content: center;
+		gap: 4rem;
+		width: 100vw;
+		height: 100vh;
+		background-image: url(images/sakYantGold1.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		transform: translateX(120%);
+		transition: 0.5s all;
+		z-index: 999;
+	}
+
+	.nav-links.active {
+		transform: translateX(0);
+		background-color: var(--color-black);
+	}
+
+	.nav-links a {
+		font-size: 3rem;
+		padding: 2rem;
+		background-color: var(--color-black);
+		min-width: 200px;
+		border-radius: 3rem;
+		box-shadow: 0px 0px 20px 0px var(--color-gold);
+	}
+
+	.nav-links a:hover::before {
+		transform: scaleX(0);
+	}
+
+	.nav-tools {
+		display: none;
+	}
+
+	.hamburger-menu {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: var(--color-white);
+		font-size: 4rem;
+	}
+}
+
+/* ? MEDIA QUERIES SMARTPHONE */
+
 @media screen and (max-width: 450px) {
 	html {
 		font-size: 50%;
 	}
 
 	/* ? NAV MOBILE and HAMBURGER */
-	
-	.nav-links{
+
+	.nav-links {
 		position: absolute;
-		top:47px;
-		right:0;
+		top: 47px;
+		right: 0;
 		flex-direction: column;
 		justify-content: center;
-		gap:4rem;
-		width:100vw;
+		gap: 4rem;
+		width: 100vw;
 		height: 100vh;
 		background-color: rgba(0, 0, 0, 0.5);
 		backdrop-filter: blur(10px);
 		transform: translateX(120%);
-        transition:.5s all ;
+		transition: 0.5s all;
 	}
 
-	.nav-links.active{
+	.nav-links.active {
 		transform: translateX(0);
 	}
 
-	.nav-links a{
+	.nav-links a {
 		font-size: 3rem;
 	}
 
-	.nav-tools{
-		display:none;
+	.nav-tools {
+		display: none;
 	}
 
-	.hamburger-menu{
-		display:flex;
+	.hamburger-menu {
+		display: flex;
 		justify-content: center;
 		align-items: center;
-		color:var(--color-white);
+		color: var(--color-white);
 		font-size: 4rem;
 	}
 }
